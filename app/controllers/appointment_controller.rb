@@ -21,7 +21,7 @@ class AppointmentController < ApplicationController
       @course.save
       render :create 
     else 
-      redirect_to :store alert
+      redirect_to :store 
     end 
 
   end
