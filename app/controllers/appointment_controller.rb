@@ -10,21 +10,19 @@ class AppointmentController < ApplicationController
   def create
     course = Course.find(params[:course_id])
      
-    @courses = Course.find(params[:course_id])
-    #Course_total = 5
-
+    @course = Course.find(params[:course_id])
+    
     @user = User.find_by(id: session[:user_id])
 
     @user.appointments.create(:course => course)
     
-    respond_to do |format|
-    if @user.appointments.create(:course => course)
-    format.html { render :create }
-    
-    else
-      render :store
+    if @user.appointments.create(:course => course) && @course.quantity <= Course::MAXIMUM
+      @course.quantity += 1
+      @course.save
+      render :create 
+    else 
+      redirect_to :store alert
     end 
-    end
 
   end
 
