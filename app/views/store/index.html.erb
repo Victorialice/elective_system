@@ -1,0 +1,28 @@
+<h1>Courses You Can Choose</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Number</th>
+  </tr>
+
+  <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.name %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= course.number %></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td> <%= button_to 'choose', container_create_path(course_id: course) %> </td>
+    </tr>
+  <% end %>
+</table>
