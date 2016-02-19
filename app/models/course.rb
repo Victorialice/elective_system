@@ -1,3 +1,4 @@
 class Course < ActiveRecord::Base
-  belongs_to :container
+  #has_many :appointments
+  #has_many :users, throught: :appointments
 end

@@ -4,20 +4,24 @@ Rails.application.routes.draw do
   post 'courses' => 'courses#create'
   get 'courses/new'
   get '/courses' =>  'courses#index'
-  get 'courses/:id' => 'container#show'
+  get 'courses/:id' => 'courses#show'
   # You can have the root of your site routed with "root"
 
   get 'store/index'
 
   #get '/container/create' => 'container#create'
-  post '/container/create' => 'container#create'
-  get '/container/create' => 'container#create'
-  get '/container' =>'container#index'
 
-  post 'user' => 'user#create'
+   post 'user' => 'user#create'
   get 'user/new'
   get '/user' => 'user#index'
   get 'user/:id' => 'user#show'
+
+   post 'appointment' => 'appointment#create'
+  get 'appointment/new'
+  get '/appointment' => 'appointment#index'
+  get 'appointment/:id' => 'appointment#show'
+
+
 
   controller :sessions do
     get 'login' => :new
