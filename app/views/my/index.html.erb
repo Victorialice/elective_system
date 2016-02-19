@@ -1,0 +1,5 @@
+
+<p>right now the count of choosed courses is <span style="color:green"><%= @my_courses.count %><span>
+<% @my_courses.each do |my_c| %>
+  <p><%= link_to my_c.name, "/courses/#{my_c.id}" %></p>
+<% end %>
