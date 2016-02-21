@@ -34,8 +34,6 @@ class AppointmentController < ApplicationController
       @course = @appointment.course
       @course.quantity -= 1
       @course.save
-
-      redirect_to "/my"
     end
 
   end

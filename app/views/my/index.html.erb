@@ -4,12 +4,12 @@
     <% @appointments.each do |a| %>
       <%= a.class %>
       <%= a.id%>
-      <table>
+      <table id="tab_<%= a.id %>">
         <tr>
           <td> <%= link_to a.course.name, "/courses/#{a.course_id}" %></td>
           <td></td>
           <td valign="top">
-            <%= button_to('cancel',appointment_path(), method: :delete, params:{appointment_id: a.id})%>
+            <%= button_to('cancel',appointment_path(), remote: true, method: :delete, params:{appointment_id: a.id})%>
           </td>
         </tr>
       </table>
