@@ -14,8 +14,6 @@ class AppointmentController < ApplicationController
     
     @user = User.find_by(id: session[:user_id])
 
-    @user.appointments.create(:course => course)
-    
     if @user.appointments.create(:course => course) && @course.quantity <= Course::MAXIMUM
       @course.quantity += 1
       @course.save
@@ -28,6 +26,18 @@ class AppointmentController < ApplicationController
 
   def show
     @appointment = Appointment.find(params[:id])
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:appointment_id])
+    if @appointment.destroy
+      @course = @appointment.course
+      @course.quantity -= 1
+      @course.save
+
+      redirect_to "/my"
+    end
+
   end
 
   private

@@ -24,7 +24,7 @@
       <td></td>
       <td>
         <% if course.quantity <= Course::MAXIMUM%>
-        <%= button_to 'choose', appointment_path(course_id: course) %> 
+        <%= button_to 'choose', appointment_path(course_id: course.id) %> 
       <% else %>
         <%=link_to 'full up' %> 
       <% end %>

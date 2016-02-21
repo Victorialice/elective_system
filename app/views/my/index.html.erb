@@ -1,5 +1,16 @@
 
 <p>right now the count of choosed courses is <span style="color:green"><%= @my_courses.count %><span>
-<% @my_courses.each do |my_c| %>
-  <p><%= link_to my_c.name, "/courses/#{my_c.id}" %></p>
-<% end %>
+
+    <% @appointments.each do |a| %>
+      <%= a.class %>
+      <%= a.id%>
+      <table>
+        <tr>
+          <td> <%= link_to a.course.name, "/courses/#{a.course_id}" %></td>
+          <td></td>
+          <td valign="top">
+            <%= button_to('cancel',appointment_path(), method: :delete, params:{appointment_id: a.id})%>
+          </td>
+        </tr>
+      </table>
+    <% end %>

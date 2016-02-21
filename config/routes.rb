@@ -19,10 +19,11 @@ Rails.application.routes.draw do
   get '/user' => 'user#index'
   get 'user/:id' => 'user#show'
 
+
    post 'appointment' => 'appointment#create'
   get 'appointment/new'
-  get '/appointment' => 'appointment#index'
-  get 'appointment/:id' => 'appointment#show'
+  get 'appointment/index'
+  delete 'appointment' => 'appointment#destroy'
 
 
 
